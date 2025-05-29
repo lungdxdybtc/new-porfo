@@ -43,7 +43,7 @@ const GlowCard = ({card, children, index}) =>{
                         // key={i} : set key cho mỗi img
                         // alt="start" : set mô tả cho ảnh
                         // className="size-5" : set style
-                        <img src = "public/images/star.png" key={i} alt="start" className="size-5"/>
+                        <img src = "/images/star.png" key={i} alt="start" className="size-5"/>
                     ))}
                 </div>
                 {/* Div này là khung chứa review của card */}

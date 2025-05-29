@@ -254,7 +254,7 @@ export const socialImgs = [
 export const projectsData = [
   {
     id: 'project1',
-    imageSrc: '/images/project1.png', // Đường dẫn từ thư mục public
+    imageSrc: '/images/project1.png', 
     altText: 'Learning Management System',
     title: 'Engineered a full-stack, scalable LMS leveraging Next.js for the frontend, Node.js, and various AWS services for the backend.',
     shortDescription: 'An enterprise-grade Learning Management Application focused on user experience and scalability.',
