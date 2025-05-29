@@ -1,0 +1,1268 @@
+/* Nhap font Mona Sans tu Google Fonts */
+/* @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+/* Nhap cac lop tien ich va thanh phan cua Tailwind CSS */
+@import "tailwindcss";
+
+/* Dinh nghia bien CSS goc (root) */
+:root {
+  /* --gradient: Bien luu gia tri cho mot gradient kieu radial (toa tron) */
+  --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
+}
+
+/* Dinh dang cho the html va body */
+html,
+/* body{
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(-45deg, #415800, #e560dc, #ffb374, #ef5f5f, #d840b6);
+  background-size: 400%, 400%;
+  animation: bg 12s ease infinite;
+}
+@keyframes bg{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 100%;
+  }
+  1000%{
+    background-position: 0% 50%;
+  }
+} */
+
+body {
+  width: 100dvw;
+  overflow-x: hidden;
+  background-color: black;
+  color: white;
+  scroll-behavior: smooth;
+  font-family: "Sansation", sans-serif;
+}
+
+/* Dinh dang cho tat ca cac the section */
+section {
+  /* width: 100dvw: Dat chieu rong bang 100% chieu rong cua khung nhin dong */
+  width: 100dvw;
+}
+
+/* Dinh nghia cac bien tuy chinh cho theme cua Tailwind */
+@theme {
+  /* --font-sans: Dat font mac dinh cho lop 'font-sans' la Mona Sans */
+  --font-sans: "Mona Sans", sans-serif;
+  /* --color-white-50: Dinh nghia mau trang sac thai 50 */
+  --color-white-50: #d9ecff;
+  /* --color-black-50: Dinh nghia mau den sac thai 50 */
+  --color-black-50: #1c1c21;
+  /* --color-black-100: Dinh nghia mau den sac thai 100 */
+  --color-black-100: #0e0e10;
+  /* --color-black-200: Dinh nghia mau den sac thai 200 */
+  --color-black-200: #282732;
+  /* --color-blue-50: Dinh nghia mau xanh duong sac thai 50 */
+  --color-blue-50: #839cb5;
+  /* --color-blue-100: Dinh nghia mau xanh duong sac thai 100 */
+  --color-blue-100: #2d2d38;
+}
+
+/* Dinh nghia cac lop tien ich tuy chinh */
+@layer utilities {
+
+  /* Lop tien ich de can giua phan tu theo ca hai chieu */
+  .flex-center {
+    @apply flex justify-center items-center;
+    /* flex: Su dung flexbox */
+    /* justify-center: Can giua theo chieu ngang */
+    /* items-center: Can giua theo chieu doc */
+  }
+
+  /* Lop tien ich de can giua phan tu theo cot doc */
+  .flex-col-center {
+    @apply flex flex-col justify-center items-center;
+    /* flex: Su dung flexbox */
+    /* flex-col: Sap xep theo cot doc */
+    /* justify-center: Can giua theo truc chinh (doc) */
+    /* items-center: Can giua theo truc phu (ngang) */
+  }
+}
+
+/* Dinh nghia cac thanh phan (component) tuy chinh */
+@layer components {
+
+  /* Thanh phan padding ngang co ban */
+  .padding-x {
+    @apply px-5 md:px-10;
+    /* px-5: Padding trai/phai la 5 don vi */
+    /* md:px-10: Tren man hinh md tro len, padding trai/phai la 10 don vi */
+  }
+
+  /* Thanh phan padding ngang lon */
+  .padding-x-lg {
+    @apply px-5 md:px-20;
+    /* px-5: Padding trai/phai la 5 don vi */
+    /* md:px-20: Tren man hinh md tro len, padding trai/phai la 20 don vi */
+  }
+
+  /* Thanh phan padding cho section */
+  .section-padding {
+    @apply px-5 md:px-10 md:mt-40 mt-20;
+    /* px-5: Padding trai/phai la 5 don vi */
+    /* md:px-10: Tren man hinh md tro len, padding trai/phai la 10 don vi */
+    /* md:mt-40: Tren man hinh md tro len, margin top la 40 don vi */
+    /* mt-20: Margin top la 20 don vi */
+  }
+
+  /* Thanh phan margin top co tinh dap ung */
+  .mt-responsive {
+    @apply xl:mt-20 md:mt-0 mt-40;
+    /* xl:mt-20: Tren man hinh xl tro len, margin top la 20 don vi */
+    /* md:mt-0: Tren man hinh md tro len, margin top la 0 */
+    /* mt-40: Margin top la 40 don vi */
+  }
+
+  /* Cac luoi (Grid) chung */
+  /* Luoi co ban (1 cot) */
+  .grid-base {
+    @apply grid grid-cols-1;
+    /* grid: Su dung CSS Grid */
+    /* grid-cols-1: Chia thanh 1 cot */
+  }
+
+  /* Luoi 2 cot */
+  .grid-2-cols {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    /* grid: Su dung CSS Grid */
+    /* grid-cols-1: Chia thanh 1 cot (mac dinh) */
+    /* md:grid-cols-2: Tren man hinh md tro len, chia thanh 2 cot */
+    /* gap-6: Khoang cach giua cac o luoi la 6 don vi */
+  }
+
+  /* Luoi 3 cot */
+  .grid-3-cols {
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6;
+    /* grid: Su dung CSS Grid */
+    /* grid-cols-1: Chia thanh 1 cot (mac dinh) */
+    /* md:grid-cols-2: Tren man hinh md tro len, chia thanh 2 cot */
+    /* xl:grid-cols-3: Tren man hinh xl tro len, chia thanh 3 cot */
+    /* gap-6: Khoang cach giua cac o luoi la 6 don vi */
+  }
+
+  /* Luoi 3 cot, khoang cach hep tren man hinh md */
+  .grid-3-cols-md-tight {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0;
+    /* grid: Su dung CSS Grid */
+    /* grid-cols-1: Chia thanh 1 cot (mac dinh) */
+    /* md:grid-cols-3: Tren man hinh md tro len, chia thanh 3 cot */
+    /* gap-5: Khoang cach giua cac o luoi la 5 don vi */
+    /* md:gap-0: Tren man hinh md tro len, khoang cach la 0 */
+  }
+
+  /* Luoi 4 cot */
+  .grid-4-cols {
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-7;
+    /* grid: Su dung CSS Grid */
+    /* grid-cols-1: Chia thanh 1 cot (mac dinh) */
+    /* md:grid-cols-2: Tren man hinh md tro len, chia thanh 2 cot */
+    /* xl:grid-cols-4: Tren man hinh xl tro len, chia thanh 4 cot */
+    /* gap-7: Khoang cach giua cac o luoi la 7 don vi */
+  }
+
+  /* Luoi 12 cot */
+  .grid-12-cols {
+    @apply grid grid-cols-1 xl:grid-cols-12 gap-10;
+    /* grid: Su dung CSS Grid */
+    /* grid-cols-1: Chia thanh 1 cot (mac dinh) */
+    /* xl:grid-cols-12: Tren man hinh xl tro len, chia thanh 12 cot */
+    /* gap-10: Khoang cach giua cac o luoi la 10 don vi */
+  }
+
+  /* Bo cuc cho phan Hero */
+  .hero-layout {
+    @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
+    /* relative: Dinh vi tuong doi */
+    /* z-10: Dat z-index la 10 */
+    /* xl:mt-20: Tren man hinh xl tro len, margin top 20 don vi */
+    /* mt-32: Margin top 32 don vi */
+    /* md:h-dvh: Tren man hinh md tro len, chieu cao bang chieu cao khung nhin dong */
+    /* h-[80vh]: Chieu cao bang 80% chieu cao khung nhin */
+    /* flex: Su dung flexbox */
+    /* xl:items-center: Tren man hinh xl tro len, can giua theo chieu doc */
+    /* items-start: Can le tren theo chieu doc */
+    /* justify-center: Can giua theo chieu ngang */
+  }
+
+  /* Van ban trong phan Hero */
+  .hero-text {
+    @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
+    /* flex: Su dung flexbox */
+    /* flex-col: Sap xep theo cot doc */
+    /* justify-center: Can giua theo truc chinh (doc) */
+    /* md:text-[60px]: Tren man hinh md tro len, co chu 60px */
+    /* text-[30px]: Co chu 30px */
+    /* font-semibold: Do dam chu semi-bold */
+    /* relative: Dinh vi tuong doi */
+    /* z-10: Dat z-index la 10 */
+    /* pointer-events-none: Khong nhan tuong tac chuot */
+
+    /* Dinh dang hinh anh ben trong .hero-text */
+    img {
+      @apply size-8 md:size-10 object-contain;
+      /* size-8: Dat chieu rong va cao la 8 don vi */
+      /* md:size-10: Tren man hinh md tro len, chieu rong va cao la 10 don vi */
+      /* object-contain: Giu ty le anh, co the co khoang trong */
+    }
+
+    /* Dinh dang cho phan slide text */
+    .slide {
+      @apply absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] md:translate-y-1 translate-y-0 overflow-hidden;
+      /* absolute: Dinh vi tuyet doi */
+      /* pt-0: Padding top la 0 */
+      /* px-2: Padding trai/phai la 2 don vi */
+      /* md:px-5: Tren man hinh md tro len, padding trai/phai la 5 don vi */
+      /* py-[30px]: Padding tren/duoi la 30px */
+      /* h-[48px]: Chieu cao 48px */
+      /* md:h-[78px]: Tren man hinh md tro len, chieu cao 78px */
+      /* md:translate-y-1: Tren man hinh md tro len, dich chuyen theo truc Y 1 don vi */
+      /* translate-y-0: Dich chuyen theo truc Y 0 don vi */
+      /* overflow-hidden: An noi dung bi tran ra ngoai */
+    }
+  }
+
+  /* Dinh dang cho huy hieu hero */
+  .hero-badge {
+    @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
+    /* bg-black-200: Mau nen den sac thai 200 */
+    /* py-2: Padding tren/duoi 2 don vi */
+    /* px-4: Padding trai/phai 4 don vi */
+    /* rounded-full: Bo tron hoan toan */
+    /* w-fit: Chieu rong vua voi noi dung */
+    /* text-sm: Co chu small */
+    /* md:text-base: Tren man hinh md tro len, co chu base */
+    /* text-nowrap: Khong xuong dong */
+  }
+
+  /* Dinh dang cho bo cuc 3D cua hero */
+  .hero-3d-layout {
+    @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
+    /* xl:w-[70%]: Tren man hinh xl tro len, rong 70% */
+    /* w-full: Rong 100% */
+    /* h-full: Cao 100% */
+    /* min-h-[50vh]: Chieu cao toi thieu 50% chieu cao khung nhin */
+    /* absolute: Dinh vi tuyet doi */
+    /* xl:-top-20: Tren man hinh xl tro len, cach top -20 don vi */
+    /* top-24: Cach top 24 don vi */
+    /* xl:-right-20: Tren man hinh xl tro len, cach phai -20 don vi */
+    /* right-0: Cach phai 0 */
+  }
+
+  /* Dinh dang thanh dieu huong (navbar) */
+  .navbar {
+    @apply fixed w-full left-1/2 py-5 px-5 md:px-20 -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out;
+    /* fixed: Dinh vi co dinh */
+    /* w-full: Rong 100% */
+    /* left-1/2: Cach trai 50% */
+    /* py-5: Padding tren/duoi 5 don vi */
+    /* px-5: Padding trai/phai 5 don vi */
+    /* md:px-20: Tren man hinh md tro len, padding trai/phai 20 don vi */
+    /* -translate-x-1/2: Dich sang trai 50% chieu rong de can giua */
+    /* z-[100]: z-index 100 */
+    /* transition-all: Ap dung chuyen canh cho moi thuoc tinh */
+    /* duration-300: Thoi gian chuyen canh 300ms */
+    /* ease-in-out: Kieu chuyen canh ease-in-out */
+
+    /* Khi navbar duoc cuon */
+    &.scrolled {
+      @apply top-0 bg-black;
+      /* top-0: Cach top 0 */
+      /* bg-black: Mau nen den */
+    }
+
+    /* Khi navbar chua duoc cuon */
+    &.not-scrolled {
+      @apply md:top-10 top-0 bg-transparent;
+      /* md:top-10: Tren man hinh md tro len, cach top 10 don vi */
+      /* top-0: Cach top 0 */
+      /* bg-transparent: Mau nen trong suot */
+    }
+
+    /* Container ben trong navbar */
+    .inner {
+      @apply mx-auto flex items-center justify-between;
+      /* mx-auto: Can giua theo chieu ngang */
+      /* flex: Su dung flexbox */
+      /* items-center: Can giua theo chieu doc */
+      /* justify-between: Phan bo deu voi khoang trong o giua */
+    }
+
+    /* Dinh dang logo */
+    .logo {
+      @apply text-white-50 text-xl md:text-2xl font-semibold transition-transform duration-300 hover:scale-105;
+      /* text-white-50: Mau chu trang sac thai 50 */
+      /* text-xl: Co chu xl */
+      /* md:text-2xl: Tren man hinh md tro len, co chu 2xl */
+      /* font-semibold: Do dam chu semi-bold */
+      /* transition-transform: Ap dung chuyen canh cho transform */
+      /* duration-300: Thoi gian chuyen canh 300ms */
+      /* hover:scale-105: Khi hover, phong to 105% */
+    }
+
+    /* Dieu huong desktop */
+    nav.desktop {
+      @apply hidden lg:flex items-center;
+      /* hidden: An */
+      /* lg:flex: Tren man hinh lg tro len, hien thi flex */
+      /* items-center: Can giua theo chieu doc */
+
+      /* Danh sach ul */
+      ul {
+        @apply flex space-x-8;
+        /* flex: Su dung flexbox */
+        /* space-x-8: Khoang cach ngang 8 don vi giua cac con */
+
+        /* Muc li */
+        li {
+          @apply text-white-50 relative;
+          /* text-white-50: Mau chu trang sac thai 50 */
+          /* relative: Dinh vi tuong doi */
+
+          /* Van ban span */
+          span {
+            @apply transition-colors duration-300 hover:text-white;
+            /* transition-colors: Ap dung chuyen canh cho mau sac */
+            /* duration-300: Thoi gian chuyen canh 300ms */
+            /* hover:text-white: Khi hover, mau chu trang */
+          }
+
+          /* Duong gach chan */
+          .underline {
+            @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full;
+            /* absolute: Dinh vi tuyet doi */
+            /* -bottom-1: Cach duoi -1 don vi */
+            /* left-0: Cach trai 0 */
+            /* w-0: Chieu rong 0 */
+            /* h-0.5: Chieu cao 0.5 don vi */
+            /* bg-white: Mau nen trang */
+            /* transition-all: Ap dung chuyen canh cho moi thuoc tinh */
+            /* duration-300: Thoi gian chuyen canh 300ms */
+            /* group-hover:w-full: Khi the li (group) duoc hover, chieu rong 100% */
+          }
+        }
+      }
+    }
+
+    /* Nut lien he */
+    .contact-btn {
+      @apply flex;
+    
+      .inner {
+        @apply px-5 py-2 rounded-lg bg-white text-black 
+               group-hover:bg-black-50 transition-all duration-300 
+               hover:scale-105 hover:shadow-xl active:scale-95 focus:ring-2 focus:ring-black;
+        /* hover:scale-105: phóng to nhẹ khi hover */
+        /* hover:shadow-xl: thêm bóng khi hover */
+        /* active:scale-95: thu nhỏ nhẹ khi click */
+        /* focus:ring-2 focus:ring-black: thêm viền đen khi focus */
+    
+        span {
+          @apply group-hover:text-white transition-colors duration-300;
+        }
+      }
+    }
+    
+  }
+
+  /* Ket thuc dinh dang .navbar */
+
+  /* Dinh dang khu vuc trung bay ung dung */
+  .app-showcase {
+    @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
+    /* w-full: Dat chieu rong la 100% */
+    /* mt-20: Dat margin top la 20 don vi */
+    /* px-5: Dat padding trai va phai la 5 don vi */
+    /* md:px-20: Tren man hinh md tro len, dat padding trai va phai la 20 don vi */
+    /* py-10: Dat padding tren va duoi la 10 don vi */
+    /* md:py-20: Tren man hinh md tro len, dat padding tren va duoi la 20 don vi */
+    /* flex: Su dung layout flexbox */
+    /* items-center: Can giua cac phan tu con theo chieu doc */
+    /* justify-center: Can giua cac phan tu con theo chieu ngang */
+
+    /* Bo cuc trung bay */
+    .showcaselayout {
+      @apply flex xl:flex-row flex-col gap-10 justify-between;
+      /* flex: Su dung layout flexbox */
+      /* xl:flex-row: Tren man hinh xl tro len, sap xep cac phan tu con theo hang ngang */
+      /* flex-col: Sap xep cac phan tu con theo cot doc (mac dinh cho man hinh nho hon xl) */
+      /* gap-10: Tao khoang cach 10 don vi giua cac phan tu con */
+      /* justify-between: Phan bo cac phan tu con voi khoang trong o giua */
+    }
+
+    /* Container cho du an dau tien */
+    .first-project-wrapper {
+      @apply h-full flex flex-col justify-between xl:w-[60%] bg-zinc-800/50 p-6 rounded-xl shadow-lg ring-1 ring-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30;
+    
+      .image-wrapper {
+        @apply xl:h-[40vh] md:h-[35vh] h-64 relative mb-5 rounded-lg overflow-hidden shadow-md border border-gray-700/50 transition-all duration-500 group-hover:shadow-xl;
+    
+        img {
+          @apply w-full h-full object-cover absolute inset-0 transition-transform duration-500 group-hover:scale-105;
+        }
+      }
+    
+      .text-content {
+        @apply space-y-5 mt-5 transition-all duration-500 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1;
+    
+        .badges {
+          @apply flex gap-2 mb-4;
+        }
+    
+        h2 {
+          @apply text-2xl md:text-2xl lg:text-3xl font-bold;
+        }
+      }
+    }
+    
+    .project-list-wrapper {
+      @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
+    
+      .project {
+        @apply bg-zinc-800/50 p-5 rounded-xl shadow-lg ring-1 ring-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30;
+    
+        .image-wrapper {
+          @apply xl:h-[15vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 overflow-hidden transition-all duration-500;
+    
+          img {
+            @apply w-full h-full object-contain rounded-xl transition-transform duration-500 group-hover:scale-105;
+          }
+        }
+    
+        h2 {
+          @apply text-lg md:text-lg lg:text-xl font-semibold mt-5 transition-all duration-500 group-hover:text-white group-hover:-translate-y-1;
+        }
+      }
+    }
+    
+  }    
+
+  /* Ket thuc dinh dang .app-showcase */
+
+  /* Container cho loi keu goi hanh dong (Call to Action - CTA) */
+  .cta-wrapper {
+    @apply relative z-20 cursor-pointer;
+    /* relative: Dat dinh vi tuong doi */
+    /* z-20: Dat chi so z-index la 20 */
+    /* cursor-pointer: Doi con tro chuot thanh hinh ban tay */
+  }
+
+  /* Dinh dang nut CTA */
+  .cta-button {
+    @apply px-4 py-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden;
+    /* px-4: Dat padding trai va phai la 4 don vi */
+    /* py-4: Dat padding tren va duoi la 4 don vi */
+    /* rounded-lg: Bo tron goc voi ban kinh lon */
+    /* bg-black-200: Dat mau nen la den sac thai 200 */
+    /* flex: Su dung layout flexbox */
+    /* justify-center: Can giua theo chieu ngang */
+    /* items-center: Can giua theo chieu doc */
+    /* relative: Dat dinh vi tuong doi */
+    /* cursor-pointer: Doi con tro chuot thanh hinh ban tay */
+    /* overflow-hidden: An noi dung bi tran ra ngoai */
+
+    /* Hinh tron nen (cho hieu ung hover) */
+    .bg-circle {
+      @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 w-[120%] h-[120%] group-hover:size-10 group-hover:right-10 rounded-full bg-white-50 transition-all duration-500;
+      /* absolute: Dat dinh vi tuyet doi */
+      /* -right-10: Cach ben phai -10 don vi (di ra ngoai ben phai) */
+      /* origin-center: Dat diem goc bien doi o giua */
+      /* top-1/2: Cach dinh 50% */
+      /* -translate-y-1/2: Dich chuyen len tren 50% chieu cao cua chinh no (de can giua theo chieu doc) */
+      /* w-[120%]: Chieu rong 120% (so voi the cha) */
+      /* h-[120%]: Chieu cao 120% (so voi the cha) */
+      /* group-hover:size-10: Khi the cha (group) duoc hover, dat chieu rong va cao la 10 don vi */
+      /* group-hover:right-10: Khi the cha (group) duoc hover, dat vi tri cach ben phai la 10 don vi */
+      /* rounded-full: Bo tron hoan toan */
+      /* bg-white-50: Dat mau nen la trang sac thai 50 */
+      /* transition-all: Ap dung chuyen canh cho tat ca thuoc tinh */
+      /* duration-500: Thoi gian chuyen canh la 500ms */
+    }
+
+    /* Van ban trong nut CTA */
+    .text {
+      @apply uppercase md:text-lg text-black transition-all duration-500 group-hover:text-white-50 group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5;
+      /* uppercase: Chuyen van ban thanh chu hoa */
+      /* md:text-lg: Tren man hinh md tro len, dat co chu la large */
+      /* text-black: Dat mau chu la den */
+      /* transition-all: Ap dung chuyen canh cho tat ca thuoc tinh */
+      /* duration-500: Thoi gian chuyen canh la 500ms */
+      /* group-hover:text-white-50: Khi the cha (group) duoc hover, dat mau chu la trang sac thai 50 */
+      /* group-hover:-translate-x-5: Khi the cha (group) duoc hover, dich chuyen sang trai 5 don vi */
+      /* xl:translate-x-0: Tren man hinh xl tro len, dat vi tri ngang la 0 */
+      /* -translate-x-5: Dich chuyen sang trai 5 don vi (mac dinh) */
+    }
+
+    /* Container cho mui ten */
+    .arrow-wrapper {
+      @apply group-hover:bg-white-50 size-10 rounded-full absolute right-10 top-1/2 -translate-y-1/2 flex justify-center items-center overflow-hidden;
+      /* group-hover:bg-white-50: Khi the cha (group) duoc hover, dat mau nen la trang sac thai 50 */
+      /* size-10: Dat chieu rong va cao la 10 don vi */
+      /* rounded-full: Bo tron hoan toan */
+      /* absolute: Dat dinh vi tuyet doi */
+      /* right-10: Cach ben phai 10 don vi */
+      /* top-1/2: Cach dinh 50% */
+      /* -translate-y-1/2: Dich chuyen len tren 50% chieu cao cua chinh no (de can giua theo chieu doc) */
+      /* flex: Su dung layout flexbox */
+      /* justify-center: Can giua theo chieu ngang */
+      /* items-center: Can giua theo chieu doc */
+      /* overflow-hidden: An noi dung bi tran ra ngoai */
+
+      /* Hinh anh mui ten */
+      img {
+        @apply size-5 xl:-translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
+        /* size-5: Dat chieu rong va cao la 5 don vi */
+        /* xl:-translate-y-32: Tren man hinh xl tro len, dich chuyen len tren 32 don vi */
+        /* translate-y-0: Dich chuyen theo chieu doc la 0 (mac dinh) */
+        /* animate-bounce: Ap dung animation ten la 'bounce' */
+        /* group-hover:translate-y-0: Khi the cha (group) duoc hover, dich chuyen theo chieu doc ve 0 */
+        /* transition-all: Ap dung chuyen canh cho tat ca thuoc tinh */
+        /* duration-500: Thoi gian chuyen canh la 500ms */
+      }
+    }
+  }
+
+  /* Ket thuc dinh dang .cta-button */
+
+  /* Dinh dang vien cho the card */
+  .card-border {
+    @apply border border-black-50 bg-black-100;
+    /* border: Them vien */
+    /* border-black-50: Dat mau vien la den sac thai 50 */
+    /* bg-black-100: Dat mau nen la den sac thai 100 */
+  }
+
+  /* Dinh dang cho muc trong marquee (chu chay) */
+  .marquee-item {
+    @apply md:w-40 w-32;
+    /* md:w-40: Tren man hinh md tro len, dat chieu rong la 40 don vi */
+    /* w-32: Dat chieu rong la 32 don vi */
+  }
+
+  /* Container cho dong thoi gian */
+  .timeline-wrapper {
+    @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center;
+    /* absolute: Dat dinh vi tuyet doi */
+    /* top-0: Cach dinh 0 */
+    /* xl:left-[35.5vw]: Tren man hinh xl tro len, cach trai 35.5% chieu rong khung nhin */
+    /* md:left-10: Tren man hinh md tro len, cach trai 10 don vi */
+    /* left-5: Cach trai 5 don vi */
+    /* h-full: Dat chieu cao 100% */
+    /* flex: Su dung flexbox */
+    /* justify-center: Can giua theo chieu ngang */
+  }
+
+  /* Dong thoi gian chinh */
+  .timeline {
+    @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black;
+    /* absolute: Dat dinh vi tuyet doi */
+    /* z-30: Dat z-index la 30 */
+    /* h-[110%]: Dat chieu cao 110% */
+    /* -top-10: Cach dinh -10 don vi (di len tren) */
+    /* w-14: Dat chieu rong 14 don vi */
+    /* md:w-28: Tren man hinh md tro len, dat chieu rong 28 don vi */
+    /* bg-black: Dat mau nen la den */
+  }
+
+  /* Logo tren dong thoi gian */
+  .timeline-logo {
+    @apply md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black-50 bg-black-100;
+    /* md:size-20: Tren man hinh md tro len, dat chieu rong va cao la 20 don vi */
+    /* size-10: Dat chieu rong va cao la 10 don vi */
+    /* flex-none: Khong cho phep co gian trong flex container */
+    /* rounded-full: Bo tron hoan toan */
+    /* flex: Su dung flexbox */
+    /* justify-center: Can giua theo chieu ngang */
+    /* items-center: Can giua theo chieu doc */
+    /* md:-translate-y-7: Tren man hinh md tro len, dich chuyen len tren 7 don vi */
+    /* border: Them vien */
+    /* border-black-50: Dat mau vien la den sac thai 50 */
+    /* bg-black-100: Dat mau nen la den sac thai 100 */
+  }
+
+  /* Container cho card kinh nghiem */
+  .exp-card-wrapper {
+    @apply flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between;
+    /* flex: Su dung flexbox */
+    /* flex-col-reverse: Sap xep theo cot doc, thu tu dao nguoc */
+    /* xl:flex-row: Tren man hinh xl tro len, sap xep theo hang ngang */
+    /* xl:gap-20: Tren man hinh xl tro len, khoang cach giua cac con la 20 don vi */
+    /* gap-10: Khoang cach giua cac con la 10 don vi */
+    /* justify-between: Phan bo deu voi khoang trong o giua */
+  }
+
+  /* Bien gradient (tao hieu ung mo dan) */
+  .gradient-edge {
+    @apply w-36 h-full absolute bottom-0 z-20;
+    /* w-36: Dat chieu rong 36 don vi */
+    /* h-full: Dat chieu cao 100% */
+    /* absolute: Dat dinh vi tuyet doi */
+    /* bottom-0: Cach duoi 0 */
+    /* z-20: Dat z-index la 20 */
+  }
+
+  /* Nen dong cho the cong nghe */
+  .tech-card-animated-bg {
+    @apply absolute left-0 bottom-[-100%] w-full h-full bg-[#2D3240] group-hover:bottom-0 transition-all duration-700;
+    /* absolute: Dat dinh vi tuyet doi */
+    /* left-0: Cach trai 0 */
+    /* bottom-[-100%]: Cach duoi -100% (an ben duoi) */
+    /* w-full: Chieu rong 100% */
+    /* h-full: Chieu cao 100% */
+    /* bg-[#2D3240]: Dat mau nen la #2D3240 */
+    /* group-hover:bottom-0: Khi group duoc hover, cach duoi 0 (hien ra) */
+    /* transition-all: Ap dung chuyen canh cho moi thuoc tinh */
+    /* duration-700: Thoi gian chuyen canh 700ms */
+  }
+
+  /* Noi dung trong the cong nghe */
+  .tech-card-content {
+    @apply flex flex-col md:justify-center items-center xl:gap-5 xl:h-[50vh] overflow-hidden relative z-10 group-hover:cursor-grab;
+    /* flex: Su dung flexbox */
+    /* flex-col: Sap xep theo cot doc */
+    /* md:justify-center: Tren man hinh md tro len, can giua theo truc chinh (doc) */
+    /* items-center: Can giua theo truc phu (ngang) */
+    /* xl:gap-5: Tren man hinh xl tro len, khoang cach giua cac con la 5 don vi */
+    /* xl:h-[50vh]: Tren man hinh xl tro len, chieu cao 50% chieu cao khung nhin */
+    /* overflow-hidden: An noi dung tran ra ngoai */
+    /* relative: Dinh vi tuong doi */
+    /* z-10: Dat z-index la 10 */
+    /* group-hover:cursor-grab: Khi group duoc hover, doi con tro thanh hinh ban tay nam */
+
+    /* Dinh dang cho the p ben trong */
+    & p {
+      @apply text-lg 2xl:text-2xl pb-5 xl:pb-0 font-semibold text-white-50 text-center;
+      /* text-lg: Co chu large */
+      /* 2xl:text-2xl: Tren man hinh 2xl tro len, co chu 2xl */
+      /* pb-5: Padding bottom 5 don vi */
+      /* xl:pb-0: Tren man hinh xl tro len, padding bottom 0 */
+      /* font-semibold: Do dam chu semi-bold */
+      /* text-white-50: Mau chu trang sac thai 50 */
+      /* text-center: Can giua van ban */
+    }
+  }
+
+  /* Luoi hien thi cong nghe */
+  .tech-grid {
+    @apply grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-5 mt-16;
+    /* grid: Su dung CSS Grid */
+    /* xl:grid-cols-5: Tren man hinh xl tro len, chia 5 cot */
+    /* md:grid-cols-3: Tren man hinh md tro len, chia 3 cot */
+    /* grid-cols-1: Chia 1 cot (mac dinh) */
+    /* xl:gap-16: Tren man hinh xl tro len, khoang cach o luoi 16 don vi */
+    /* md:gap-10: Tren man hinh md tro len, khoang cach o luoi 10 don vi */
+    /* gap-5: Khoang cach o luoi 5 don vi */
+    /* mt-16: Margin top 16 don vi */
+  }
+
+  /* Container cho icon cong nghe */
+  .tech-icon-wrapper {
+    @apply flex justify-center items-center w-52 h-60 relative;
+    /* flex: Su dung flexbox */
+    /* justify-center: Can giua theo chieu ngang */
+    /* items-center: Can giua theo chieu doc */
+    /* w-52: Chieu rong 52 don vi */
+    /* h-60: Chieu cao 60 don vi */
+    /* relative: Dinh vi tuong doi */
+  }
+
+  /* Dinh dang cho form */
+  form {
+
+    /* Dinh dang cho label */
+    label {
+      @apply block text-white-50 mb-2;
+      /* block: Hien thi dang block */
+      /* text-white-50: Mau chu trang sac thai 50 */
+      /* mb-2: Margin bottom 2 don vi */
+    }
+
+    /* Dinh dang cho input va textarea */
+    input,
+    textarea {
+      @apply w-full px-4 py-4 md:text-base text-sm placeholder:text-blue-50 bg-blue-100 rounded-md;
+      /* w-full: Chieu rong 100% */
+      /* px-4: Padding trai/phai 4 don vi */
+      /* py-4: Padding tren/duoi 4 don vi */
+      /* md:text-base: Tren man hinh md tro len, co chu base */
+      /* text-sm: Co chu small */
+      /* placeholder:text-blue-50: Mau chu placeholder la xanh duong sac thai 50 */
+      /* bg-blue-100: Mau nen xanh duong sac thai 100 */
+      /* rounded-md: Bo tron goc vua */
+    }
+
+    /* Dinh dang cho the a (link, dung nhu nut submit) */
+    a {
+      @apply w-full py-4 bg-white text-black font-semibold rounded-md flex justify-center items-center gap-2;
+      /* w-full: Chieu rong 100% */
+      /* py-4: Padding tren/duoi 4 don vi */
+      /* bg-white: Mau nen trang */
+      /* text-black: Mau chu den */
+      /* font-semibold: Do dam chu semi-bold */
+      /* rounded-md: Bo tron goc vua */
+      /* flex: Su dung flexbox */
+      /* justify-center: Can giua theo chieu ngang */
+      /* items-center: Can giua theo chieu doc */
+      /* gap-2: Khoang cach giua cac con la 2 don vi */
+
+      /* Dinh dang cho img ben trong the a */
+      img {
+        @apply inline-block;
+        /* Hien thi dang inline-block */
+      }
+    }
+  }
+
+  /* Dinh dang phan Footer */
+  .footer {
+    @apply my-10 md:mt-20 mt-10 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
+    /* my-10: Margin tren/duoi 10 don vi */
+    /* md:mt-20: Tren man hinh md tro len, margin top 20 don vi */
+    /* mt-10: Margin top 10 don vi */
+    /* text-white-50: Mau chu trang sac thai 50 */
+    /* px-5: Padding trai/phai 5 don vi */
+    /* md:px-20: Tren man hinh md tro len, padding trai/phai 20 don vi */
+    /* xl:px-20: Tren man hinh xl tro len, padding trai/phai 20 don vi */
+    /* flex: Su dung flexbox */
+    /* items-center: Can giua theo chieu doc */
+    /* justify-center: Can giua theo chieu ngang */
+
+    /* Container ben trong footer */
+    .footer-container {
+      @apply grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 w-full;
+      /* grid: Su dung CSS Grid */
+      /* grid-cols-1: Chia 1 cot (mac dinh) */
+      /* md:grid-cols-3: Tren man hinh md tro len, chia 3 cot */
+      /* gap-5: Khoang cach o luoi 5 don vi */
+      /* md:gap-0: Tren man hinh md tro len, khoang cach o luoi 0 */
+      /* w-full: Chieu rong 100% */
+    }
+
+    /* Dinh dang the p trong footer */
+    p {
+      @apply text-center md:text-start;
+      /* text-center: Can giua van ban */
+      /* md:text-start: Tren man hinh md tro len, can le trai van ban */
+    }
+
+    /* Dinh dang khu vuc mang xa hoi */
+    .socials {
+      @apply flex items-center justify-center gap-5;
+      /* flex: Su dung flexbox */
+      /* items-center: Can giua theo chieu doc */
+      /* justify-center: Can giua theo chieu ngang */
+      /* gap-5: Khoang cach giua cac con la 5 don vi */
+
+      /* Dinh dang icon mang xa hoi */
+      .icon {
+        @apply border border-black-50 bg-black-100 flex justify-center items-center rounded-xl size-10 md:size-12 cursor-pointer transition-all duration-500 hover:bg-black-50;
+        /* border: Them vien */
+        /* border-black-50: Mau vien den sac thai 50 */
+        /* bg-black-100: Mau nen den sac thai 100 */
+        /* flex: Su dung flexbox */
+        /* justify-center: Can giua theo chieu ngang */
+        /* items-center: Can giua theo chieu doc */
+        /* rounded-xl: Bo tron goc rat lon */
+        /* size-10: Chieu rong/cao 10 don vi */
+        /* md:size-12: Tren man hinh md tro len, chieu rong/cao 12 don vi */
+        /* cursor-pointer: Con tro hinh ban tay */
+        /* transition-all: Ap dung chuyen canh cho moi thuoc tinh */
+        /* duration-500: Thoi gian chuyen canh 500ms */
+        /* hover:bg-black-50: Khi hover, mau nen den sac thai 50 */
+      }
+
+      /* Dinh dang img ben trong .socials */
+      img {
+        @apply inline-block;
+        /* Hien thi dang inline-block */
+      }
+    }
+  }
+
+  /* Ket thuc dinh dang .footer */
+}
+
+/* Ket thuc layer components */
+
+/* Bat dau dinh dang slider van ban Hero */
+.slide {
+  /* display: inline-block: Hien thi nhu mot khoi nhung nam tren cung mot dong */
+  display: inline-block;
+  /* flex-direction: column: Sap xep cac muc con theo chieu doc */
+  flex-direction: column;
+  /* transition: all cubic-bezier(...): Hieu ung chuyen canh cho tat ca thuoc tinh voi ham thoi gian bezier tuy chinh */
+  transition: all cubic-bezier(0.71, 0.03, 0.34, 1);
+}
+
+.wrapper {
+  /* display: flex: Su dung mo hinh flexbox */
+  display: flex;
+  /* flex-direction: column: Sap xep cac muc con theo chieu doc */
+  flex-direction: column;
+  /* animation: wordSlider 21s infinite cubic-bezier(...): Ap dung animation 'wordSlider' trong 21s, lap vo han, voi ham thoi gian bezier tuy chinh */
+  animation: wordSlider 21s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
+}
+
+/* Dinh nghia animation 'wordSlider' */
+@keyframes wordSlider {
+
+  /* 0%: Trang thai bat dau, dich chuyen len 0.5% */
+  0% {
+    transform: translateY(0.5%);
+  }
+
+  /* 12.5%: Dich chuyen len -12.5% */
+  12.5% {
+    transform: translateY(-12.5%);
+  }
+
+  /* 25%: Dich chuyen len -25% */
+  25% {
+    transform: translateY(-25%);
+  }
+
+  /* 37.5%: Dich chuyen len -37.5% */
+  37.5% {
+    transform: translateY(-37.5%);
+  }
+
+  /* 50%: Dich chuyen len -50% */
+  50% {
+    transform: translateY(-50%);
+  }
+
+  /* 62.5%: Dich chuyen len -62.5% */
+  62.5% {
+    transform: translateY(-62.5%);
+  }
+
+  /* 75%: Dich chuyen len -75% */
+  75% {
+    transform: translateY(-75%);
+  }
+
+  /* 87.5%: Dich chuyen len -87.5% */
+  87.5% {
+    transform: translateY(-87.5%);
+  }
+
+  /* Animation se quay ve 0% de lap lai */
+}
+
+/* Ket thuc dinh dang slider van ban Hero */
+
+/* Duong ke gradient */
+.gradient-line {
+  /* width: 2px: Dat chieu rong la 2 pixel */
+  width: 2px;
+  /* background: linear-gradient(...): Tao nen gradient tuyen tinh tu tren xuong duoi voi cac diem mau va do trong suot khac nhau */
+  background: linear-gradient(0deg,
+      /* Huong gradient tu duoi len */
+      rgba(69, 222, 196, 0) 0%,
+      /* Mau xanh luc trong suot o diem bat dau */
+      #62e0ff 25%,
+      /* Mau xanh duong nhat o 25% */
+      #52aeff 37.51%,
+      /* Mau xanh duong o 37.51% */
+      #fd5c79 62.83%,
+      /* Mau hong o 62.83% */
+      #6d45ce 92.91%
+      /* Mau tim o 92.91% */
+    );
+}
+
+/* Dinh dang cho bien gradient (canh trai) */
+.gradient-edge:nth-of-type(1) {
+  /* left: 0: Dat o canh trai */
+  left: 0;
+  /* background: linear-gradient(...): Tao gradient tuyen tinh tu trai sang phai, tu den sang trong suot */
+  background: linear-gradient(90deg,
+      /* Huong gradient tu trai sang phai */
+      rgba(0, 0, 0, 1) 0%,
+      /* Mau den hoan toan o diem bat dau */
+      rgba(255, 255, 255, 0) 100%
+      /* Mau trong suot o diem ket thuc */
+    );
+}
+
+/* Dinh dang cho bien gradient (canh phai) */
+.gradient-edge:nth-of-type(2) {
+  /* right: 0: Dat o canh phai */
+  right: 0;
+  /* background: linear-gradient(...): Tao gradient tuyen tinh tu phai sang trai, tu den sang trong suot */
+  background: linear-gradient(-90deg,
+      /* Huong gradient tu phai sang trai */
+      rgba(0, 0, 0, 1) 0%,
+      /* Mau den hoan toan o diem bat dau */
+      rgba(255, 255, 255, 0) 100%
+      /* Mau trong suot o diem ket thuc */
+    );
+}
+
+/* marquee (khu vuc chu chay) */
+.marquee {
+  /* width: 100dvw: Chieu rong bang 100% chieu rong khung nhin dong */
+  width: 100dvw;
+  /* overflow: hidden: An noi dung tran ra ngoai */
+  overflow: hidden;
+  /* position: relative: Dinh vi tuong doi (lam co so cho .marquee-box) */
+  position: relative;
+}
+
+/* Box chua noi dung marquee */
+.marquee-box {
+  /* display: flex: Su dung flexbox */
+  display: flex;
+  /* align-items: center: Can giua cac muc con theo chieu doc */
+  align-items: center;
+  /* width: 200%: Chieu rong gap doi container (de tao hieu ung lap) */
+  width: 200%;
+  /* height: 100%: Chieu cao 100% */
+  height: 100%;
+  /* position: absolute: Dinh vi tuyet doi (so voi .marquee) */
+  position: absolute;
+  /* overflow: hidden: An noi dung tran ra ngoai */
+  overflow: hidden;
+  /* animation: marquee 60s linear infinite: Ap dung animation 'marquee' trong 60s, toc do deu, lap vo han */
+  animation: marquee 60s linear infinite;
+}
+
+/* Muc rieng le trong marquee */
+.marquee-item {
+  /* float: left: Day muc sang ben trai, cho phep cac muc khac xep canh */
+  float: left;
+}
+
+/* Dinh nghia animation 'marquee' */
+@keyframes marquee {
+
+  /* 0%: Vi tri bat dau, canh trai la 0 */
+  0% {
+    left: 0;
+  }
+
+  /* 100%: Vi tri ket thuc, canh trai la -100% (da dich chuyen het chieu rong cua mot set noi dung) */
+  100% {
+    left: -100%;
+  }
+}
+
+/* ket thuc marquee */
+
+/* Dinh dang the Card voi hieu ung vien phat sang */
+.card {
+  @apply bg-zinc-800/50 p-5 rounded-xl ring-1 ring-white/10 transition-all duration-300 shadow-[0_0_10px_rgba(180,0,255,0.6)] hover:shadow-[0_0_12px_rgba(180,0,255,0.8)];
+
+  /* --start: 0: Bien CSS tuy chinh, dung cho goc bat dau cua gradient */
+  --start: 0;
+  /* position: relative: Dinh vi tuong doi */
+  position: relative;
+  /* z-index: 40: Dat z-index la 40 */
+  z-index: 40;
+  /* overflow: hidden: An noi dung tran ra ngoai (quan trong cho hieu ung mask) */
+  overflow: hidden;
+  /* transition: border-color 1s ease-in-out: Chuyen canh cho mau vien trong 1s voi hieu ung ease-in-out */
+  transition: border-color 1s ease-in-out;
+}
+
+/* Pseudo-element ::before de tao vien phat sang */
+.card::before {
+  /* position: absolute: Dinh vi tuyet doi */
+  position: absolute;
+  /* content: "": Bat buoc cho pseudo-element */
+  content: "";
+  /* width: 100%: Chieu rong 100% */
+  width: 100%;
+  /* height: 100%: Chieu cao 100% */
+  height: 100%;
+  /* left: 50%; top: 50%: Dat goc trai tren o giua the cha */
+  left: 50%;
+  top: 50%;
+  /* transform: translate(-50%, -50%): Can giua chinh xac */
+  transform: translate(-50%, -50%);
+  /* border-radius: 12px: Bo tron goc 12px */
+  border-radius: 12px;
+  /* border: 2px solid transparent: Tao vien trong suot 2px (de mask hoat dong) */
+  border: 2px solid transparent;
+  /* background: var(--gradient): Su dung gradient da dinh nghia o :root */
+  background: var(--gradient);
+  /* background-attachment: fixed: Nen khong cuon theo noi dung */
+  background-attachment: fixed;
+  /* mask: linear-gradient(...) , conic-gradient(...): Ap dung mat na */
+  mask:
+    /* Mat na 1: Gradient tuyen tinh trong suot (tao khoang trong cho vien) */
+    linear-gradient(#0000, #0000),
+    /* Mat na 2: Gradient hinh non tao hieu ung sang xoay vong */
+    conic-gradient(from calc((var(--start) - 15) * 1deg),
+      /* Goc bat dau phu thuoc vao bien --start */
+      #ffffff1f 0deg,
+      /* Mau trang mo o goc bat dau */
+      white,
+      /* Mau trang */
+      #ffffff00 100deg
+      /* Mau trong suot o 100 do */
+    );
+  /* mask-composite: intersect: Ket hop hai mat na, chi giu lai phan giao nhau */
+  mask-composite: intersect;
+  /* mask-clip: padding-box, border-box: Ap dung mat na cho ca vung padding va vung border */
+  mask-clip: padding-box, border-box;
+  /* opacity: 0: An di mac dinh */
+  opacity: 0;
+  /* transition: 0.5s ease: Chuyen canh opacity trong 0.5s voi hieu ung ease */
+  transition: 0.5s ease;
+}
+
+/* Hieu ung phat sang (blur) */
+.glow {
+  /* pointer-events: none: Khong nhan tuong tac chuot */
+  pointer-events: none;
+  /* position: absolute: Dinh vi tuyet doi */
+  position: absolute;
+  /* width: 100%: Chieu rong 100% */
+  width: 100%;
+  /* height: 100%: Chieu cao 100% */
+  height: 100%;
+  /* left: 50%; top: 50%: Dat goc trai tren o giua */
+  left: 50%;
+  top: 50%;
+  /* transform: translate(-50%, -50%): Can giua chinh xac */
+  transform: translate(-50%, -50%);
+  /* filter: blur(10px): Ap dung bo loc lam mo 10px */
+  filter: blur(10px);
+  /* filter: saturate(200): Tang do bao hoa mau len 200% */
+  filter: saturate(200);
+}
+
+/* Khi hover vao card, hien thi vien phat sang */
+.card:hover::before {
+  /* opacity: 1: Hien thi pseudo-element ::before */
+  opacity: 1;
+}
+
+.tech-card-style {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.tech-card-style:hover {
+  transform: scale(1.03);
+}
+
+/* Outer glow border layer */
+.tech-card-style::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 200px;
+  height: 264px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Glowing blur layer */
+.tech-card-style::after {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: scale(0.95);
+  filter: blur(20px);
+  transition: filter 0.3s ease;
+}
+
+/* Hover effects */
+.tech-card-style:hover::after {
+  filter: blur(30px);
+}
+
+.tech-card-style:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+
+/* Title inside card */
+.tech-card-style .heading {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Optional subtitle/text */
+.tech-card-style p:not(.heading) {
+  font-size: 14px;
+}
+
+/* Optional highlight */
+.tech-card-style p:last-child {
+  color: #e81cff;
+  font-weight: 600;
+}
+
+
+@layer components {
+  .custom-old-button-gradient {
+    /* Đảm bảo position relative để các span con absolute hoạt động đúng */
+    /* Các style cơ bản như text-white, active:scale, focus:ring đã được thêm bằng Tailwind */
+    /* z-index: 0; /* Thiết lập stacking context nếu cần, thường thì relative là đủ */
+  }
+
+  /* Span cho hiệu ứng gradient nền xoay (giống Button mới) */
+  .custom-old-button-gradient-bg {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: conic-gradient(
+      from 0deg,
+      #ffdb3b, /* Tailwind yellow-400 */
+      #fe53bb,
+      #8f51ea,
+      #0044ff,
+      #ffdb3b
+    );
+    animation: spin_gradient_old 6s linear infinite;
+    z-index: -2; /* Nằm dưới lớp nền tối và dưới text */
+  }
+
+  /*
+    Lớp nền tối (bg-slate-900) tạo hiệu ứng viền đã được thêm bằng Tailwind:
+    <span className="absolute inset-0.5 rounded-full bg-slate-900 group-hover:bg-slate-800 transition-colors duration-300 z-[-1]"></span>
+  */
+
+  /* Nếu bạn muốn giữ lại hiệu ứng .bg-circle từ code cũ, bạn cần định nghĩa nó ở đây */
+  /* Ví dụ:
+  .bg-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+    z-index: 0; // Phải dưới text
+  }
+  .custom-old-button-gradient:hover .bg-circle {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  */
+
+  /* Style cho text nếu bạn dùng class mới .text-content */
+  .text-content {
+    /* Các style hiện tại của class "text" của bạn, hoặc để trống nếu Tailwind đã xử lý */
+    /* Ví dụ: font-weight, letter-spacing nếu có */
+  }
+
+  /* Style cho .arrow-wrapper nếu cần (ngoài margin đã thêm bằng Tailwind) */
+  .arrow-wrapper {
+    display: inline-flex; /* Đảm bảo icon nằm đúng */
+    align-items: center;
+  }
+}
+
+@keyframes spin_gradient_old { /* Đổi tên để tránh xung đột nếu bạn có animation khác tên spin_gradient */
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* === Animated Gradient Button (Inspired by Uiverse.io by vinodjangid07) === */
+
+.animated-gradient-btn {
+  width: 140px; /* Có thể đổi thành % hoặc dùng min-width nếu muốn responsive hơn */
+  height: 40px;
+  border: none;
+  border-radius: 10px; /* Hoặc var(--radius-md, 10px) nếu bạn có biến CSS */
+  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277; /* Màu chữ cho text bên trong ::before (nếu ::before không che hết) */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s; /* Hoặc var(--transition-long, 1s) */
+  overflow: hidden; /* Quan trọng để ::before không tràn ra ngoài */
+  text-decoration: none; /* Nếu dùng thẻ <a> */
+  font-family: inherit; /* Đảm bảo kế thừa font */
+  font-size: 1em; /* Hoặc kích thước cụ thể */
+}
+
+/* Lớp overlay với text "SUBSCRIBE" */
+.animated-gradient-btn::before {
+  content: "Contact"; /* Text hiển thị mặc định */
+  position: absolute;
+  /* Không cần top, left, right, bottom nếu dùng flexbox trên parent và width/height 100% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;   /* Tạo hiệu ứng "viền" nhỏ từ background của parent */
+  height: 90%;  /* Tạo hiệu ứng "viền" nhỏ từ background của parent */
+  border-radius: 8px; /* Hơi nhỏ hơn parent radius để viền đều */
+  transition-duration: 1s; /* Hoặc var(--transition-long, 1s) */
+  background-color: rgba(0, 0, 0, 0.842); /* Nền của lớp overlay */
+  /* background-size: 200%; -> Dòng này có vẻ không cần thiết cho ::before vì nó không có background-image */
+  color: #ffd277; /* Màu chữ của "SUBSCRIBE" */
+  z-index: 1; /* Đảm bảo ::before ở trên background của .animated-gradient-btn */
+}
+
+/* Hiệu ứng khi hover */
+.animated-gradient-btn:hover {
+  background-position: right; /* Di chuyển gradient của button cha */
+  /* transition-duration: 1s; -> Đã có ở .animated-gradient-btn */
+}
+
+/* Hiệu ứng cho ::before khi button cha được hover */
+.animated-gradient-btn:hover::before {
+  /* Dòng này không có tác dụng trực tiếp lên ::before vì nó không có background-position để thay đổi */
+  /* background-position: right; */
+  /* Bạn có thể thay đổi thuộc tính khác của ::before ở đây nếu muốn, ví dụ: */
+  /* content: "HOVERED!"; */
+  /* background-color: rgba(50, 50, 50, 0.8); */
+  /* color: white; */
+  /* transition-duration: 1s; -> Đã có ở .animated-gradient-btn::before */
+}
+
+/* Hiệu ứng khi active (nhấn giữ) */
+.animated-gradient-btn:active {
+  transform: scale(0.95);
+}
+
+/* Tùy chọn: Nếu bạn muốn text trong ::before có thể thay đổi bằng data-attribute */
+/*
+.animated-gradient-btn[data-text]::before {
+  content: attr(data-text);
+}
+*/
