@@ -108,7 +108,7 @@ export const expCards = [
     review:
       "Thanh excelled as a Software Developer while also providing system analysis and end-user support. His strong technical skills and understanding of warehouse operations ensured effective development and smooth system usage.",
     logoPath: "/images/wanek.png",
-    title: "Software Developer | Systems Analyst & End-User Support",
+    title: "Software Developer & End-User Support",
     date: "Oct 2024 – Present",
     responsibilities: [
       "Led development of custom SQL scripts, extensions, and configurations to meet business needs within the HighJump WMS.",
