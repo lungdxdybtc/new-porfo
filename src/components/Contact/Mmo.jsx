@@ -14,7 +14,7 @@ import { SkeletonUtils } from 'three-stdlib'
 
 export function Mmo(props) {
   const group = React.useRef()
-  const { scene, animations } = useGLTF('public/models/mmo_rgb.glb')
+  const { scene, animations } = useGLTF('/models/mmo_rgb.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
   const { actions } = useAnimations(animations, group)
@@ -45,4 +45,4 @@ export function Mmo(props) {
   )
 }
 
-useGLTF.preload('public/models/mmo_rgb.glb')
+useGLTF.preload('/models/mmo_rgb.glb')

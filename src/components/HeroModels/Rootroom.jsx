@@ -11,7 +11,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Rootroom(props) {
-  const { nodes, materials } = useGLTF('public/models/rootroom.glb')
+  const { nodes, materials } = useGLTF('/models/rootroom.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[-2.163, 1.375, 1.333]} scale={0.692}>
@@ -305,4 +305,4 @@ export function Rootroom(props) {
   )
 }
 
-useGLTF.preload('public/models/rootroom.glb')
+useGLTF.preload('/models/rootroom.glb')

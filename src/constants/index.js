@@ -1,14 +1,14 @@
 export const words = [
-  { text: 'Innovative Ideas', imgPath: '/public/images/ideas.svg' },
-  { text: 'Strategic Solutions', imgPath: '/public/images/concepts.svg' },
-  { text: 'Creative Concepts', imgPath: '/public/images/designs.svg' },
-  { text: 'Cutting-edge Development', imgPath: '/public/images/code.svg' },
-  { text: 'Impactful Projects', imgPath: '/public/images/ideas.svg' },
-  { text: 'Visionary Strategies', imgPath: '/public/images/concepts.svg' },
-  { text: 'Exceptional Designs', imgPath: '/public/images/designs.svg' },
-  { text: 'Next-Gen Technologies', imgPath: '/public/images/code.svg' },
-  { text: 'User-Centered Experiences', imgPath: '/public/images/ideas.svg' },
-  { text: 'Scalable Systems', imgPath: '/public/images/concepts.svg' }
+  { text: 'Innovative Ideas', imgPath: '/images/ideas.svg' },
+  { text: 'Strategic Solutions', imgPath: '/images/concepts.svg' },
+  { text: 'Creative Concepts', imgPath: '/images/designs.svg' },
+  { text: 'Cutting-edge Development', imgPath: '/images/code.svg' },
+  { text: 'Impactful Projects', imgPath: '/images/ideas.svg' },
+  { text: 'Visionary Strategies', imgPath: '/images/concepts.svg' },
+  { text: 'Exceptional Designs', imgPath: '/images/designs.svg' },
+  { text: 'Next-Gen Technologies', imgPath: '/images/code.svg' },
+  { text: 'User-Centered Experiences', imgPath: '/images/ideas.svg' },
+  { text: 'Scalable Systems', imgPath: '/images/concepts.svg' }
 ];
 
 export const counterItems = [
@@ -86,17 +86,17 @@ export const logoIconsList = [
 
 export const abilities = [
   {
-    imgPath: "public/images/seo.png",
+    imgPath: "/images/seo.png",
     title: "Attention to Detail",
     desc: "I always strive for clean, reliable code and polished results, even in the smallest elements.",
   },
   {
-    imgPath: "public/images/chat.png",
+    imgPath: "/images/chat.png",
     title: "Effective Communication",
     desc: "I prioritize clear and consistent updates to ensure smooth collaboration and mutual understanding.",
   },
   {
-    imgPath: "public/images/time.png",
+    imgPath: "/images/time.png",
     title: "Responsible with Deadlines",
     desc: "I manage my time carefully to deliver on expectations and grow through each project experience.",
   },
@@ -107,7 +107,7 @@ export const expCards = [
   {
     review:
       "Thanh excelled as a Software Developer while also providing system analysis and end-user support. His strong technical skills and understanding of warehouse operations ensured effective development and smooth system usage.",
-    logoPath: "public/images/wanek.png",
+    logoPath: "/images/wanek.png",
     title: "Software Developer | Systems Analyst & End-User Support",
     date: "Oct 2024 – Present",
     responsibilities: [
@@ -121,7 +121,7 @@ export const expCards = [
   {
     review:
       "Thanh played a pivotal role in enhancing and maintaining our ERP and e-commerce systems. His combined skills as a Java developer and systems analyst enabled him to deliver tailored technical solutions that met real business demands.",
-    logoPath: "public/images/csvc.png",
+    logoPath: "/images/csvc.png",
     title: "Java Developer & Systems Analyst",
     date: "May 2022 – Jun 2024",
     responsibilities: [
@@ -135,7 +135,7 @@ export const expCards = [
   {
     review:
       "During his military service, Thanh combined discipline with innovation, independently developing AI-driven solutions. His passion for technology and self-learning distinguished him in a demanding environment.",
-    logoPath: "public/images/bqp.png",
+    logoPath: "/images/bqp.png",
     title: "Military Service & Independent Developer",
     date: "2020 – 2022",
     responsibilities: [
@@ -151,31 +151,31 @@ export const expCards = [
 export const techStackIcons = [
   {
     name: "Full-Stack React Developer",
-    modelPath: "public/models/react_logo-transformed.glb",
+    modelPath: "/models/react_logo-transformed.glb",
     scale: 1,
     rotation: [0, 0, 0],
   },
   {
     name: "Python Software Engineer",
-    modelPath: "public/models/python-transformed.glb",
+    modelPath: "/models/python-transformed.glb",
     scale: 0.8,
     rotation: [0, 0, 0],
   },
   {
     name: "Backend Developer",
-    modelPath: "public/models/node-transformed.glb",
+    modelPath: "/models/node-transformed.glb",
     scale: 5,
     rotation: [0, -Math.PI / 2, 0],
   },
   {
     name: "3D Interactive Developer",
-    modelPath: "public/models/three.js-transformed.glb",
+    modelPath: "/models/three.js-transformed.glb",
     scale: 0.05,
     rotation: [0, 0, 0],
   },
   {
     name: "Database & Version Control Specialist",
-    modelPath: "public/models/git-svg-transformed.glb",
+    modelPath: "/models/git-svg-transformed.glb",
     scale: 0.05,
     rotation: [0, -Math.PI / 4, 0],
   },
@@ -188,42 +188,42 @@ export const testimonials = [
     mentions: "",
     review:
       "Working with Thanh was a game changer. He understood our needs quickly and built a stunning, highly functional website that exceeded all expectations. His creativity and attention to detail really made the difference.",
-    imgPath: "public/images/client2.png",
+    imgPath: "/images/client2.png",
   },
   {
     name: "Sophia Tran",
     mentions: "",
     review:
       "Thanh transformed our digital presence with a modern, intuitive design. His work ethic, communication, and technical skills are outstanding. I highly recommend him for any web development projects!",
-    imgPath: "public/images/client3.png",
+    imgPath: "/images/client3.png",
   },
   {
     name: "Noah Pham",
     mentions: "",
     review:
       "Thanh's ability to turn complex ideas into simple, beautiful solutions is incredible. He was professional, fast, and always ready to provide insightful suggestions. It was a pleasure to work together.",
-    imgPath: "public/images/client2.png",
+    imgPath: "/images/client2.png",
   },
   {
     name: "Emma Le",
     mentions: "",
     review:
       "We were amazed by the quality of Thanh's work. Our platform is now faster, cleaner, and more engaging thanks to his expertise. He's not just a developer — he's a true problem solver.",
-    imgPath: "public/images/client5.png",
+    imgPath: "/images/client5.png",
   },
   {
     name: "Lucas Vo",
     mentions: "",
     review:
       "Thanh brought our vision to life with precision and creativity. His commitment to delivering top-quality results was clear from day one. I would gladly work with him again on future projects.",
-    imgPath: "public/images/client4.png",
+    imgPath: "/images/client4.png",
   },
   {
     name: "Isabella Huynh",
     mentions: "",
     review:
       "Thanh impressed us with his deep understanding of both frontend and backend development. He built a robust, scalable solution that perfectly matched our business goals. Truly a top-tier developer!",
-    imgPath: "public/images/client6.png",
+    imgPath: "/images/client6.png",
   },
 ];
 
